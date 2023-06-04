@@ -3,7 +3,6 @@
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 import Button from "@/src/components/common/button/Button";
@@ -23,7 +22,6 @@ const restirectedUsernames = [
 ];
 
 export default function Login() {
-  notFound();
   const supabase = useSupabaseClient<Database>();
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");

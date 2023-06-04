@@ -28,7 +28,6 @@ export default async function UserProfile({
   params: { username: string };
   searchParams?: { [key: string]: string | undefined };
 }) {
-  notFound();
   let isLoading = true;
   const supabase = createClient();
   const username = params.username;
