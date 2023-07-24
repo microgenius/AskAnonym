@@ -22,10 +22,10 @@ export default function QuestionsAnswers() {
               placeholder="Enter Session Name"
               maxLength={50}
             />
-            <div className="mt-4 flex justify-center">
-              <Button className="w-full">Create Session</Button>
+            <div className="mt-4 flex justify-center items-center">
+              <Button className="w-full">Create</Button>
               <p className="mx-4 text-gray-500">or</p>
-              <Button className="w-full">Join Session</Button>
+              <Button className="w-full">Join</Button>
             </div>
           </div>
         </div>
