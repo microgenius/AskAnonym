@@ -33,7 +33,8 @@ export interface Question {
   id: string;
   question: string;
   status: string;
-  user_id: string;
+  user_id?: string;
+  qa_session_id?: string;
   topic_id: string | null;
   created_at: string | null;
   topic: Topic | null;

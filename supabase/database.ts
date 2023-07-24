@@ -118,7 +118,8 @@ export interface Database {
           id: string;
           question: string;
           status: string;
-          user_id: string;
+          user_id?: string | null;
+          qa_session_id?: string | null;
           topic_id: string | null;
           created_at: string | null;
           is_pinned: boolean;
@@ -127,7 +128,8 @@ export interface Database {
           id?: string;
           question: string;
           status?: string;
-          user_id: string;
+          user_id?: string | null;
+          qa_session_id?: string | null;
           topic_id?: string | null;
           created_at?: string | null;
           is_pinned?: boolean;
@@ -137,6 +139,7 @@ export interface Database {
           question?: string;
           status?: string;
           user_id?: string;
+          qa_session_id?: string | null;
           topic_id?: string | null;
           created_at?: string | null;
           is_pinned?: boolean;
@@ -162,6 +165,26 @@ export interface Database {
           question_id?: string;
           answer?: string;
           user_id?: string;
+          created_at?: string | null;
+        };
+      };
+      qa_sessions: {
+        Row: {
+          id: string;
+          session_track_id: string;
+          session_name: string;
+          created_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          session_track_id: string;
+          session_name: string;
+          created_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          session_track_id?: string;
+          session_name?: string;
           created_at?: string | null;
         };
       };

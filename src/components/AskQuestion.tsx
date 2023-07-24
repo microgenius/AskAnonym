@@ -12,11 +12,12 @@ import Button from "./common/button/Button";
 import EmojiSelector from "./EmojiSelector";
 
 interface AskQuestionProps {
-  username: string;
+  username?: string;
+  qaSessionId?: string;
   topic?: Topic;
 }
 
-function AskQuestion({ username, topic }: AskQuestionProps) {
+function AskQuestion({ username, qaSessionId, topic }: AskQuestionProps) {
   const supabase = useSupabaseClient();
   const [question, setQuestion] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -54,7 +55,8 @@ function AskQuestion({ username, topic }: AskQuestionProps) {
 
     const { error } = await supabase.from("questions").insert({
       question: question!,
-      user_id: ownerUserId!,
+      user_id: ownerUserId,
+      qa_session_id: qaSessionId,
       topic_id: topic?.id
     });
 
@@ -89,20 +91,11 @@ function AskQuestion({ username, topic }: AskQuestionProps) {
                   maxLength={1000}
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 dark:text-gray-100 dark:placeholder:text-gray-400 sm:text-sm"
                   placeholder={
-                    "Ask anonymous question " +
-                    (topic ? `in #${topic?.name}` : "")
+                    "Ask a question " + (topic ? `in #${topic?.name}` : "")
                   }
                 />
-                <label
-                  htmlFor="question"
-                  className="text-xs  text-gray-500 dark:text-gray-300 "
-                >
-                  * questions will be published after user{" "}
-                  <span className="font-bold text-cyan-500">approval</span>{" "}
-                  process.
-                </label>
               </div>
-              <div className="flex justify-end">
+              <div className="mt-4 flex justify-end">
                 <label className="text-xs font-bold text-red-600">
                   {questionContentLength}/1000
                 </label>

@@ -37,7 +37,6 @@ function Posts({ posts, userId, sessionUserId }: PostsProps) {
           )
           .map((post, id) => (
             <React.Fragment key={id}>
-              {id === 3 && !sessionUserId && <CallToAction />}
               <li className=" bg-white px-4  py-6 shadow dark:bg-slate-700 sm:rounded-lg sm:p-6">
                 <Post item={post} onDelete={deleteQuestion} />
               </li>
