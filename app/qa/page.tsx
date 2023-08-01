@@ -44,33 +44,25 @@ export default function QuestionsAnswers() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">Questions and Answers</h1>
+        <h1 className="text-6xl font-bold">Soru / Cevap</h1>
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <div className="mt-6 w-96 rounded-xl border p-6 text-left">
             <Input
-              label="Session Name"
+              label="Oturum ID"
               name="session_name"
               type={"text"}
               value={sessionName}
               onChange={e => setSessionName(e.target.value)}
-              placeholder="Enter Session Name"
+              placeholder="Lutfen bir oturum ID giriniz"
               maxLength={50}
             />
             <div className="mt-4 flex items-center justify-center">
               <Button
                 className="w-full"
-                onClick={() => createSession()}
-                isDisabled={isSessionNameEmpty()}
-              >
-                Create
-              </Button>
-              <p className="mx-4 text-gray-500">or</p>
-              <Button
-                className="w-full"
                 onClick={() => joinSession()}
                 isDisabled={isSessionNameEmpty()}
               >
-                Join
+                Oturuma Katıl
               </Button>
             </div>
           </div>

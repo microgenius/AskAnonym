@@ -10,7 +10,7 @@ interface ILogo {
 function Logo({ width = 100, height = 40 }: ILogo) {
   return (
     <>
-      <Link href="/" className="flex justify-start">
+      <Link href="/qa" className="flex justify-start">
         {/* <div className="text-3xl font-extrabold  text-purple-700 dark:text-purple-400 ">
           <span className="text-4xl">ask</span>
           <span className="text-2xl text-yellow-400"> anonym</span>
