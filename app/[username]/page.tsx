@@ -115,7 +115,7 @@ export default async function UserProfile({
                   <div className="">
                     <Posts
                       variant="profile"
-                      posts={posts}
+                      initialPosts={posts}
                       userId={ownerUser.id}
                       sessionUserId={sessionUser.data.user?.id}
                     />

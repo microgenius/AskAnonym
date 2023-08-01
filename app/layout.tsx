@@ -37,7 +37,7 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+      <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
       <meta property="og:image" content="https://www.askanonym.com/api/og" />
 
       <meta name="twitter:card" content="summary_large_image" />

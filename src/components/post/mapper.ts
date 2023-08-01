@@ -35,3 +35,13 @@ export function questionToPost(questions: Question[]): PostItem[] {
 
   return posts;
 }
+
+export function questionToPostItem(question: Question): PostItem {
+  return {
+    date: question.created_at!,
+    header: question.question,
+    id: question.id,
+    status: question.status as PostStatus,
+    profile: question.user
+  };
+}

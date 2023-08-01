@@ -15,6 +15,7 @@ interface ButtonProps {
   endIcon?: React.SVGProps<SVGSVGElement>;
   type?: "submit" | "reset" | "button" | undefined;
   isLoading?: boolean;
+  isDisabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   onSubmit?: FormEventHandler<HTMLButtonElement> | undefined;
 }
@@ -32,6 +33,7 @@ function Button(props: ButtonProps) {
     startIcon,
     type = "button",
     isLoading,
+    isDisabled,
     onClick,
     onSubmit
   } = props;
@@ -60,7 +62,7 @@ function Button(props: ButtonProps) {
       onSubmit={onSubmit}
       type={type}
       className={classes}
-      disabled={isLoading}
+      disabled={isLoading || isDisabled}
     >
       {isLoading && (
         <div role="status">

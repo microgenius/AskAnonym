@@ -50,7 +50,7 @@ export default async function MainFeed({ topicId }: MainFeedProps) {
                   <div className="mt-5">
                     <Posts
                       variant="home"
-                      posts={answerToPost(answers as Answer[])}
+                      initialPosts={answerToPost(answers as Answer[])}
                       sessionUserId={sessionUser.session?.user.id}
                     />
                   </div>

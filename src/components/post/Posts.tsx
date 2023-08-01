@@ -1,22 +1,30 @@
 "use client";
 
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
-import React from "react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import React, { useEffect, useState } from "react";
 
+import { questionToPostItem } from "@/src/components/post/mapper";
 import { Database } from "@/supabase/database";
+import { Question } from "@/supabase/models";
 
-import CallToAction from "../global/CallToAction";
 import Post from "./Post";
 import { PostItem, PostStatus } from "./types";
 
 interface PostsProps {
-  posts: PostItem[];
+  initialPosts: PostItem[];
   variant: "home" | "profile";
   userId?: string;
+  qaSessionId?: string;
   sessionUserId?: string;
 }
 
-function Posts({ posts, userId, sessionUserId }: PostsProps) {
+function Posts({
+  initialPosts,
+  userId,
+  qaSessionId,
+  sessionUserId
+}: PostsProps) {
+  const [posts, setPosts] = useState<PostItem[]>(initialPosts);
   const supabase = useSupabaseClient<Database>();
 
   async function deleteQuestion(questionId: string) {
@@ -25,6 +33,34 @@ function Posts({ posts, userId, sessionUserId }: PostsProps) {
 
     window.location.reload();
   }
+
+  const tableFilter = `qa_session_id=eq.${qaSessionId}`;
+  const newQuestionsSubscription = supabase
+    .channel("table-filter-changes")
+    .on<Question>(
+      "postgres_changes",
+      {
+        event: "INSERT",
+        schema: "public",
+        table: "questions",
+        filter: tableFilter
+      },
+      payload => {
+        const newPost = questionToPostItem(payload.new);
+        if (posts.filter(post => post.id === newPost.id).length > 0) {
+          return;
+        }
+
+        setPosts([...posts, newPost]);
+      }
+    )
+    .subscribe();
+
+  useEffect(() => {
+    return () => {
+      newQuestionsSubscription.unsubscribe();
+    };
+  }, [newQuestionsSubscription]);
 
   return (
     <>

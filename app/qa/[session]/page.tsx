@@ -71,7 +71,8 @@ export default async function UserProfile({
                   <div className="">
                     <Posts
                       variant="profile"
-                      posts={posts}
+                      initialPosts={posts}
+                      qaSessionId={qaSession?.id}
                       userId={"-1"}
                       sessionUserId={"-1"}
                     />

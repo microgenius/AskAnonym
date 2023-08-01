@@ -33,6 +33,10 @@ export default function QuestionsAnswers() {
     window.location.href = `/qa/${sessionName}`;
   }
 
+  function isSessionNameEmpty() {
+    return sessionName.trim() === "";
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -53,11 +57,19 @@ export default function QuestionsAnswers() {
               maxLength={50}
             />
             <div className="mt-4 flex items-center justify-center">
-              <Button className="w-full" onClick={() => createSession()}>
+              <Button
+                className="w-full"
+                onClick={() => createSession()}
+                isDisabled={isSessionNameEmpty()}
+              >
                 Create
               </Button>
               <p className="mx-4 text-gray-500">or</p>
-              <Button className="w-full" onClick={() => joinSession()}>
+              <Button
+                className="w-full"
+                onClick={() => joinSession()}
+                isDisabled={isSessionNameEmpty()}
+              >
                 Join
               </Button>
             </div>

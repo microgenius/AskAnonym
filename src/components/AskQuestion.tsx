@@ -21,7 +21,7 @@ function AskQuestion({ username, qaSessionId, topic }: AskQuestionProps) {
   const supabase = useSupabaseClient();
   const [question, setQuestion] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [ownerUserId, setOwnerUserId] = useState<string>("");
+  const [ownerUserId, setOwnerUserId] = useState<string>();
   const [questionContentLength, setQuestionContentLength] = useState<number>(0);
   const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
 
@@ -39,7 +39,9 @@ function AskQuestion({ username, qaSessionId, topic }: AskQuestionProps) {
   }, [username, supabase]);
 
   useEffect(() => {
-    ownerUser();
+    if (username) {
+      ownerUser();
+    }
   }, [ownerUser]);
 
   async function createQuestion() {
@@ -65,6 +67,13 @@ function AskQuestion({ username, qaSessionId, topic }: AskQuestionProps) {
       setQuestionContentLength(0);
       Notify.success("Anonymous question sent!");
     }
+
+    if (error) {
+      Notify.failure("Anonymous question could not be sent!");
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
+
     setIsLoading(false);
   }
 
