@@ -26,11 +26,11 @@ export default function QuestionsAnswers() {
       alert("Error creating session");
     }
 
-    window.location.href = `/qa/${maxSessionTrackId}`;
+    window.location.href = `/${maxSessionTrackId}`;
   }
 
   function joinSession() {
-    window.location.href = `/qa/${sessionName}`;
+    window.location.href = `/${sessionName}`;
   }
 
   function isSessionNameEmpty() {
