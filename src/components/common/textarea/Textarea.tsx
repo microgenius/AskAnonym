@@ -30,7 +30,7 @@ export default function Textarea({
 
   useEffect(() => {
     setTextAreaContentLength(value?.length ?? 0);
-  }, [setTextAreaContentLength]);
+  }, [setTextAreaContentLength, value?.length]);
 
   function onTextChange(text: string) {
     const parsedTextContentData = generalParse(text);

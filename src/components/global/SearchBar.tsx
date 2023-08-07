@@ -45,7 +45,7 @@ function SearchBar() {
   };
   useEffect(() => {
     fetchSuggestions(query);
-  }, [query]);
+  }, [fetchSuggestions, query]);
   return (
     <div className="flex items-center px-6 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
       <div className="w-full">

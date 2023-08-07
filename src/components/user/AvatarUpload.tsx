@@ -59,7 +59,7 @@ export const AvatarUpload = ({ username }: { username: string }) => {
         error: "Not uploaded"
       });
     },
-    [supabase, user?.id, username]
+    [uploadImage]
   );
 
   if (!isOwnerUser) return null;

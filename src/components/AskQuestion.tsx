@@ -42,7 +42,7 @@ function AskQuestion({ username, qaSessionId, topic }: AskQuestionProps) {
     if (username) {
       ownerUser();
     }
-  }, [ownerUser]);
+  }, [ownerUser, username]);
 
   async function createQuestion() {
     if (question.trim() === "") {

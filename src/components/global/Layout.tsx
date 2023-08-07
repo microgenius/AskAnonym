@@ -10,6 +10,7 @@ import {
   HomeIcon,
   UserGroupIcon
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import { Fragment } from "react";
 
 import { classNames } from "@/src/helpers/tailwindHelper";
@@ -193,7 +194,7 @@ export default function Layout() {
                               className="flex items-center space-x-3 py-4"
                             >
                               <div className="shrink-0">
-                                <img
+                                <Image
                                   className="h-8 w-8 rounded-full"
                                   src={user.imageUrl}
                                   alt=""
@@ -251,7 +252,7 @@ export default function Layout() {
                           {trendingPosts.map(post => (
                             <li key={post.id} className="flex space-x-3 py-4">
                               <div className="shrink-0">
-                                <img
+                                <Image
                                   className="h-8 w-8 rounded-full"
                                   src={post.user.imageUrl}
                                   alt={post.user.name}
