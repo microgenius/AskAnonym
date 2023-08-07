@@ -37,7 +37,7 @@ export default async function UserProfile({
     .from("questions")
     .select(questionQuery)
     .eq("qa_session_id", qaSession?.id)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: true });
 
   const posts: PostItem[] = questionToPost(draftQuestions as Question[]);
 
