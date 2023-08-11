@@ -30,7 +30,7 @@ function Navbar() {
       >
         {({ open }) => (
           <>
-            <div className="container mx-auto h-20 px-4 py-3 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-4 py-3 sm:px-6 lg:px-8">
               <div className="relative flex items-center justify-self-center lg:gap-8 xl:grid xl:grid-cols-12">
                 <Logo />
                 <DarkModeToggle />
