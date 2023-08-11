@@ -50,20 +50,28 @@ export default async function UserProfile({
             <Loader color="rgb(126,34,206)" />
           </div>
         ) : (
-          <main className="py-4 sm:py-10">
+          <main className="py-4 sm:py-12 lg:px-10">
             {/* Page header */}
             <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
               <h1
                 className={
-                  "inline-flex items-center justify-center text-4xl font-bold text-purple-700 dark:text-purple-400 sm:text-[50px] md:text-[72px]"
+                  "inline-flex items-center justify-center py-4 text-4xl font-bold text-purple-700 dark:text-purple-400 text-[35px]"
                 }
               >
                 {qaSession.session_name}
               </h1>
             </div>
-
-            <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
-              <div className="space-y-6 lg:col-span-2 lg:col-start-1">
+            <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+              <h4
+                className={
+                  "inline-flex items-center justify-center py-4 text-4xl font-bold text-purple-700 dark:text-purple-400"
+                }
+              >
+                {qaSession.speaker_name}
+              </h4>
+            </div>
+            <div className="mx-auto mt-8 max-w-3xl sm:px-6 lg:max-w-7xl">
+              <div className="space-y-6">
                 <AskQuestion qaSessionId={qaSession?.id} />
 
                 {/* Comments*/}

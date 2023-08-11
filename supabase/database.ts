@@ -172,18 +172,21 @@ export interface Database {
         Row: {
           id: string;
           session_track_id: string;
+          speaker_name: string;
           session_name: string;
           created_at: string | null;
         };
         Insert: {
           id?: string;
           session_track_id: string;
+          speaker_name?: string;
           session_name: string;
           created_at?: string | null;
         };
         Update: {
           id?: string;
           session_track_id?: string;
+          speaker_name?: string;
           session_name?: string;
           created_at?: string | null;
         };
