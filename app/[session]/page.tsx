@@ -55,7 +55,7 @@ export default async function UserProfile({
             <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
               <h1
                 className={
-                  "inline-flex items-center justify-center py-4 text-4xl font-bold text-purple-700 dark:text-purple-400 text-[35px]"
+                  "inline-flex items-center justify-center py-4 text-4xl font-bold text-purple-700 dark:text-purple-400"
                 }
               >
                 {qaSession.session_name}
